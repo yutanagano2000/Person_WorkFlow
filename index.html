@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ワークフロー</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">ワークフロー</h1>
+        
+        <div class="flowchart">
+            <!-- 第一フェーズ -->
+            <div class="phase-section">
+                <div class="phase-label">第一フェーズ</div>
+                
+                <!-- 0営業日 -->
+                <div class="node start">
+                    <div class="node-header">案件スタート</div>
+                    <div class="node-time">0営業日</div>
+                    <div class="node-content">
+                        <div class="task">• 案件取得</div>
+                        <div class="task">• 初期撮影（写真・映像）</div>
+                    </div>
+                </div>
+                
+                <div class="connector"></div>
+                
+                <!-- 5営業日後 -->
+                <div class="node process">
+                    <div class="node-header">初期調査・設計</div>
+                    <div class="node-time">5営業日後</div>
+                    <div class="node-content">
+                        <div class="task">• 法令チェック</div>
+                        <div class="task">• ハザードマップ確認</div>
+                        <div class="task">• ラフ図面作成</div>
+                    </div>
+                </div>
+                
+                <div class="connector"></div>
+                
+                <!-- 3営業日後 -->
+                <div class="node process">
+                    <div class="node-header">現地詳細確認・方針決定</div>
+                    <div class="node-time">3営業日後</div>
+                    <div class="node-content">
+                        <div class="task">• 現調（不足分の写真撮影）</div>
+                        <div class="task">• 提出先・方針の決定</div>
+                    </div>
+                </div>
+                
+                <div class="connector"></div>
+                
+                <!-- 判断分岐 -->
+                <div class="node decision">
+                    <div class="node-header">提出先の判断</div>
+                    <div class="node-content">
+                        <div class="decision-criteria">
+                            <strong>判断基準：</strong><br>
+                            「確実な案件」または<br>
+                            「写真より現地の状態が良い」<br>
+                            → 双日優先
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="branch-container">
+                    <div class="branch branch-left">
+                        <div class="branch-label">エクソル</div>
+                        <div class="node process branch-node">
+                            <div class="node-header">案件提出</div>
+                            <div class="node-content">この時点で案件提出</div>
+                        </div>
+                    </div>
+                    
+                    <div class="branch branch-right">
+                        <div class="branch-label">双日</div>
+                        <div class="node process branch-node">
+                            <div class="node-header">造成判断</div>
+                            <div class="node-content">造成を先行するか<br>現状のまま進めるか判断</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="connector merge"></div>
+                
+                <!-- 5営業日後 -->
+                <div class="node process">
+                    <div class="node-header">申請・契約・詳細設計</div>
+                    <div class="node-time">5営業日後</div>
+                    <div class="node-content">
+                        <div class="task">• 図面修正</div>
+                        <div class="task">• 電力シミュレーション</div>
+                        <div class="task">• 伐採範囲の許可取得</div>
+                        <div class="task">• 土地契約</div>
+                        <div class="task">• 地目変更</div>
+                        <div class="task important">• 電力申請（回答まで約1.5ヶ月）</div>
+                        <div class="task important">• 法令申請（回答まで約1ヶ月）</div>
+                    </div>
+                </div>
+                
+                <div class="connector"></div>
+                
+                <!-- 5営業日後 -->
+                <div class="node process">
+                    <div class="node-header">対外対応</div>
+                    <div class="node-time">5営業日後</div>
+                    <div class="node-content">
+                        <div class="task">• 近隣挨拶</div>
+                    </div>
+                </div>
+                
+                <div class="connector"></div>
+                
+                <!-- 3営業日後 -->
+                <div class="node process">
+                    <div class="node-header">最終調整</div>
+                    <div class="node-time">3営業日後</div>
+                    <div class="node-content">
+                        <div class="task">• 本設計（再シミュレーション実施）</div>
+                    </div>
+                </div>
+                
+                <div class="connector"></div>
+                
+                <!-- 待機期間 -->
+                <div class="node wait">
+                    <div class="node-header">電力回答待ち</div>
+                    <div class="node-time">約1.5ヶ月</div>
+                    <div class="node-content">
+                        <div class="task">電力申請から約1.5ヶ月後に回答受領</div>
+                    </div>
+                </div>
+                
+                <div class="connector"></div>
+                
+                <!-- 回答受領後5営業日 -->
+                <div class="node process">
+                    <div class="node-header">最終判断・決済</div>
+                    <div class="node-time">回答受領後5営業日</div>
+                    <div class="node-content">
+                        <div class="task">• 地盤調査依頼</div>
+                        <div class="task important">• 決済（名義変更）</div>
+                        <div class="task-note">
+                            <strong>条件：</strong>地盤調査結果がOK、かつ「農地以外」の場合のみ
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 第二フェーズ -->
+            <div class="phase-section">
+                <div class="phase-label">第二フェーズ：個別契約・着工前確認（ゲート）</div>
+                
+                <div class="gate-container">
+                    <div class="gate-section">
+                        <div class="gate-title">共通の確認事項</div>
+                        <div class="gate-items">
+                            <div class="gate-item">✓ 法令許認可が下りていること</div>
+                            <div class="gate-item">✓ 地質調査（地盤調査）が終わっていること</div>
+                            <div class="gate-item">✓ 近隣対応が終わっていること</div>
+                            <div class="gate-item">✓ 連系負担金の支払いが終わっていること</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gate-section">
+                        <div class="gate-title">地目別の確認事項</div>
+                        <div class="gate-items">
+                            <div class="gate-item-group">
+                                <div class="gate-item-label">農地以外：</div>
+                                <div class="gate-item">✓ 決済が完了し、所有権が「Person名義」になっていること</div>
+                            </div>
+                            <div class="gate-item-group">
+                                <div class="gate-item-label">農地：</div>
+                                <div class="gate-item">✓ 農地転用（農転）が申請済み、もしくは許可済みであること</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="connector"></div>
+                
+                <div class="node end">
+                    <div class="node-header">完了</div>
+                    <div class="node-content">
+                        <div class="task">個別契約締結</div>
+                        <div class="task">工事着工</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
