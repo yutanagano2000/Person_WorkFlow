@@ -7,54 +7,90 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- サイドパネル -->
+    <div class="sidebar">
+        <div class="sidebar-header">全体フロー</div>
+        <div class="sidebar-content">
+            <div class="sidebar-phase active" data-phase="1">
+                <div class="sidebar-phase-title">1. 第一フェーズ</div>
+                <div class="sidebar-steps">
+                    <div class="sidebar-step" data-step="1">1. 案件スタート</div>
+                    <div class="sidebar-step" data-step="2">2. 初期調査・設計</div>
+                    <div class="sidebar-step" data-step="3">3. 現地詳細確認・方針決定</div>
+                    <div class="sidebar-step" data-step="4">4. 提出先の判断</div>
+                    <div class="sidebar-step" data-step="5">5. 申請・契約・詳細設計</div>
+                    <div class="sidebar-step" data-step="6">6. 最終調整</div>
+                    <div class="sidebar-step" data-step="7">7. 電力回答待ち</div>
+                    <div class="sidebar-step" data-step="8">8. 最終判断</div>
+                </div>
+            </div>
+            <div class="sidebar-phase" data-phase="2">
+                <div class="sidebar-phase-title">2. 第二フェーズ</div>
+                <div class="sidebar-steps">
+                    <div class="sidebar-step" data-step="9">9. 完了</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="container">
         <h1 class="title">ワークフロー</h1>
         
         <div class="flowchart">
             <!-- 第一フェーズ -->
-            <div class="phase-section">
-                <div class="phase-label">第一フェーズ</div>
+            <div class="phase-section" data-phase="1">
+                <div class="phase-label">1. 第一フェーズ</div>
                 
                 <!-- 0営業日 -->
-                <div class="node start">
-                    <div class="node-header">案件スタート</div>
-                    <div class="node-time">0営業日</div>
+                <div class="node start" data-step="1">
+                    <div class="node-header">1. 案件スタート</div>
+                    <div class="node-time-container">
+                        <span class="time-badge">0営業日</span>
+                        <span class="time-from-start-badge">スタートから0営業日後</span>
+                    </div>
                     <div class="node-content">
-                        <div class="task">• 案件取得</div>
-                        <div class="task">• 初期撮影（写真・映像）</div>
+                        <div class="task">案件取得</div>
+                        <div class="task">初期撮影（写真・映像）<span class="badge badge-pink">営業</span></div>
                     </div>
                 </div>
                 
                 <div class="connector"></div>
                 
                 <!-- 5営業日後 -->
-                <div class="node process">
-                    <div class="node-header">初期調査・設計</div>
-                    <div class="node-time">5営業日後</div>
+                <div class="node process" data-step="2">
+                    <div class="node-header">2. 初期調査・設計</div>
+                    <div class="node-time-container">
+                        <span class="time-badge">5営業日後</span>
+                        <span class="time-from-start-badge">スタートから5営業日後</span>
+                    </div>
                     <div class="node-content">
-                        <div class="task">• 法令チェック</div>
-                        <div class="task">• ハザードマップ確認</div>
-                        <div class="task">• ラフ図面作成</div>
+                        <div class="task">法令チェック</div>
+                        <div class="task">ハザードマップ確認</div>
+                        <div class="task">ラフ図面作成</div>
+                        <div class="task">現場案内図作成</div>
                     </div>
                 </div>
                 
                 <div class="connector"></div>
                 
                 <!-- 3営業日後 -->
-                <div class="node process">
-                    <div class="node-header">現地詳細確認・方針決定</div>
-                    <div class="node-time">3営業日後</div>
+                <div class="node process" data-step="3">
+                    <div class="node-header">3. 現地詳細確認・方針決定</div>
+                    <div class="node-time-container">
+                        <span class="time-badge">3営業日後</span>
+                        <span class="time-from-start-badge">スタートから8営業日後</span>
+                    </div>
                     <div class="node-content">
-                        <div class="task">• 現調（不足分の写真撮影）</div>
-                        <div class="task">• 提出先・方針の決定</div>
+                        <div class="task">現調（不足分の写真撮影）</div>
+                        <div class="task">提出先・方針の決定</div>
                     </div>
                 </div>
                 
                 <div class="connector"></div>
                 
                 <!-- 判断分岐 -->
-                <div class="node decision">
-                    <div class="node-header">提出先の判断</div>
+                <div class="node decision" data-step="4">
+                    <div class="node-header">4. 提出先の判断</div>
                     <div class="node-content">
                         <div class="decision-criteria">
                             <strong>判断基準：</strong><br>
@@ -70,7 +106,7 @@
                         <div class="branch-label">エクソル</div>
                         <div class="node process branch-node">
                             <div class="node-header">案件提出</div>
-                            <div class="node-content">この時点で案件提出</div>
+                            <div class="node-content">この時点で案件提出<br>Kintoneに載せる</div>
                         </div>
                     </div>
                     
@@ -78,7 +114,7 @@
                         <div class="branch-label">双日</div>
                         <div class="node process branch-node">
                             <div class="node-header">造成判断</div>
-                            <div class="node-content">造成を先行するか<br>現状のまま進めるか判断</div>
+                            <div class="node-content">造成を先行するか<br>現状のまま進めるか判断<br>Boxに入れる</div>
                         </div>
                     </div>
                 </div>
@@ -86,48 +122,46 @@
                 <div class="connector merge"></div>
                 
                 <!-- 5営業日後 -->
-                <div class="node process">
-                    <div class="node-header">申請・契約・詳細設計</div>
-                    <div class="node-time">5営業日後</div>
-                    <div class="node-content">
-                        <div class="task">• 図面修正</div>
-                        <div class="task">• 電力シミュレーション</div>
-                        <div class="task">• 伐採範囲の許可取得</div>
-                        <div class="task">• 土地契約</div>
-                        <div class="task">• 地目変更</div>
-                        <div class="task important">• 電力申請（回答まで約1.5ヶ月）</div>
-                        <div class="task important">• 法令申請（回答まで約1ヶ月）</div>
+                <div class="node process" data-step="5">
+                    <div class="node-header">5. 申請・契約・詳細設計</div>
+                    <div class="node-time-container">
+                        <span class="time-badge">5営業日後</span>
+                        <span class="time-from-start-badge">スタートから13営業日後</span>
                     </div>
-                </div>
-                
-                <div class="connector"></div>
-                
-                <!-- 5営業日後 -->
-                <div class="node process">
-                    <div class="node-header">対外対応</div>
-                    <div class="node-time">5営業日後</div>
                     <div class="node-content">
-                        <div class="task">• 近隣挨拶</div>
+                        <div class="task">図面修正</div>
+                        <div class="task">電力シミュレーション</div>
+                        <div class="task">近隣挨拶・伐採範囲の許可取得</div>
+                        <div class="task">土地契約</div>
+                        <div class="task">地目変更</div>
+                        <div class="task important">電力申請（回答まで約1.5ヶ月）</div>
+                        <div class="task important">法令申請（回答まで約1ヶ月）</div>
                     </div>
                 </div>
                 
                 <div class="connector"></div>
                 
                 <!-- 3営業日後 -->
-                <div class="node process">
-                    <div class="node-header">最終調整</div>
-                    <div class="node-time">3営業日後</div>
+                <div class="node process" data-step="6">
+                    <div class="node-header">6. 最終調整</div>
+                    <div class="node-time-container">
+                        <span class="time-badge">3営業日後</span>
+                        <span class="time-from-start-badge">スタートから16営業日後</span>
+                    </div>
                     <div class="node-content">
-                        <div class="task">• 本設計（再シミュレーション実施）</div>
+                        <div class="task">本設計（再シミュレーション実施）</div>
                     </div>
                 </div>
                 
                 <div class="connector"></div>
                 
                 <!-- 待機期間 -->
-                <div class="node wait">
-                    <div class="node-header">電力回答待ち</div>
-                    <div class="node-time">約1.5ヶ月</div>
+                <div class="node wait" data-step="7">
+                    <div class="node-header">7. 電力回答待ち</div>
+                    <div class="node-time-container">
+                        <span class="time-badge">約1.5ヶ月</span>
+                        <span class="time-from-start-badge">スタートから約46営業日後</span>
+                    </div>
                     <div class="node-content">
                         <div class="task">電力申請から約1.5ヶ月後に回答受領</div>
                     </div>
@@ -136,12 +170,15 @@
                 <div class="connector"></div>
                 
                 <!-- 回答受領後5営業日 -->
-                <div class="node process">
-                    <div class="node-header">最終判断・決済</div>
-                    <div class="node-time">回答受領後5営業日</div>
+                <div class="node process" data-step="8">
+                    <div class="node-header">8. 最終判断</div>
+                    <div class="node-time-container">
+                        <span class="time-badge">回答受領後5営業日</span>
+                        <span class="time-from-start-badge">スタートから約51営業日後</span>
+                    </div>
                     <div class="node-content">
-                        <div class="task">• 地盤調査依頼</div>
-                        <div class="task important">• 決済（名義変更）</div>
+                        <div class="task">地盤調査依頼</div>
+                        <div class="task important">決済（名義変更）</div>
                         <div class="task-note">
                             <strong>条件：</strong>地盤調査結果がOK、かつ「農地以外」の場合のみ
                         </div>
@@ -150,8 +187,8 @@
             </div>
             
             <!-- 第二フェーズ -->
-            <div class="phase-section">
-                <div class="phase-label">第二フェーズ：個別契約・着工前確認（ゲート）</div>
+            <div class="phase-section" data-phase="2">
+                <div class="phase-label">2. 第二フェーズ：個別契約・着工前確認（ゲート）</div>
                 
                 <div class="gate-container">
                     <div class="gate-section">
@@ -181,8 +218,8 @@
                 
                 <div class="connector"></div>
                 
-                <div class="node end">
-                    <div class="node-header">完了</div>
+                <div class="node end" data-step="9">
+                    <div class="node-header">9. 完了</div>
                     <div class="node-content">
                         <div class="task">個別契約締結</div>
                         <div class="task">工事着工</div>
@@ -191,5 +228,113 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        // スクロール位置に応じてハイライト
+        function updateActiveStep() {
+            const viewportTop = window.scrollY + 200; // ビューポート上部から200px下を基準
+            const allSteps = document.querySelectorAll('[data-step]');
+            const allPhases = document.querySelectorAll('.phase-section');
+            
+            let activeStep = null;
+            let activePhase = null;
+            let closestStep = null;
+            let closestDistance = Infinity;
+            
+            // 現在のステップを検出（ビューポート上部に最も近い要素を選択）
+            allSteps.forEach(step => {
+                const rect = step.getBoundingClientRect();
+                const elementTop = rect.top + window.scrollY;
+                const elementBottom = elementTop + rect.height;
+                
+                // 要素がビューポート上部より下にある場合
+                if (elementTop <= viewportTop) {
+                    const distance = viewportTop - elementTop;
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestStep = step.getAttribute('data-step');
+                    }
+                }
+            });
+            
+            // 最も近いステップを選択（見つからない場合は最初のステップ）
+            if (closestStep) {
+                activeStep = closestStep;
+            } else if (allSteps.length > 0) {
+                activeStep = allSteps[0].getAttribute('data-step');
+            }
+            
+            // 現在のフェーズを検出
+            allPhases.forEach(phase => {
+                const rect = phase.getBoundingClientRect();
+                const elementTop = rect.top + window.scrollY;
+                const elementBottom = elementTop + rect.height;
+                
+                if (viewportTop >= elementTop && viewportTop <= elementBottom) {
+                    activePhase = phase.getAttribute('data-phase');
+                }
+            });
+            
+            // サイドバーのハイライトを更新
+            document.querySelectorAll('.sidebar-step').forEach(step => {
+                step.classList.remove('active');
+                if (step.getAttribute('data-step') === activeStep) {
+                    step.classList.add('active');
+                }
+            });
+            
+            document.querySelectorAll('.sidebar-phase').forEach(phase => {
+                phase.classList.remove('active');
+                if (phase.getAttribute('data-phase') === activePhase) {
+                    phase.classList.add('active');
+                }
+            });
+        }
+        
+        // スクロールイベント
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(updateActiveStep, 10);
+        });
+        
+        // 初期状態を更新
+        updateActiveStep();
+        
+        // サイドバーのステップをクリックしたら該当箇所にスクロール
+        document.querySelectorAll('.sidebar-step').forEach(step => {
+            step.addEventListener('click', function() {
+                const stepNum = this.getAttribute('data-step');
+                const targetElement = document.querySelector(`[data-step="${stepNum}"]`);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+        
+        // サイドバーのフェーズをクリックしたら該当フェーズにスクロール
+        document.querySelectorAll('.sidebar-phase-title').forEach(phaseTitle => {
+            phaseTitle.addEventListener('click', function() {
+                const phase = this.closest('.sidebar-phase');
+                const phaseNum = phase.getAttribute('data-phase');
+                const targetPhase = document.querySelector(`.phase-section[data-phase="${phaseNum}"]`);
+                if (targetPhase) {
+                    targetPhase.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // タイムバッジをクリックしたら該当ノードにスクロール
+        document.querySelectorAll('.time-badge, .time-from-start-badge').forEach(badge => {
+            badge.addEventListener('click', function() {
+                const node = this.closest('.node');
+                if (node) {
+                    node.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
